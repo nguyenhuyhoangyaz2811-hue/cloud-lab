@@ -1,14 +1,12 @@
 services:
   backend:
     build: ./mern-demo/server
-    ports:
-      - "5000:5000"
+    network_mode: host
     env_file:
       - ./mern-demo/server/.env
-    
+
   frontend:
     build: ./mern-demo/client
-    ports:
-      - "5173:5173"
+    network_mode: host
     depends_on:
       - backend
